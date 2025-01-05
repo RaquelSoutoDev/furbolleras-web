@@ -1,0 +1,94 @@
+.partidos {
+  padding: 2.5rem;
+  background-color: black;
+  color: white;
+}
+
+.partidos h2 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 1.5rem;
+}
+.partidos h5 {
+  text-align: center;
+}
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.filtros-tipo,
+.filtros-estado {
+  display: flex;
+  gap: 1rem;
+}
+
+.filtros button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #7ce7f1;
+  color: black;
+  cursor: pointer;
+  font-size: 0.8em;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.filtros button:hover {
+  background-color: #5ac0c9;
+  transform: scale(1.05);
+}
+
+.partidos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.paginacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.paginacion button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #7ce7f1;
+  color: black;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.paginacion button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.paginacion button:hover:enabled {
+  background-color: #5ac0c9;
+}
+
+.paginacion span {
+  font-size: 1rem;
+  color: white;
+}
+
+@media (min-width: 750px) {
+  .partidos {
+    padding: 4rem;
+  }
+  .partidos h2 {
+    font-size: 4em;
+  }
+  .filtros button {
+    font-size: 1em;
+  }
+}
