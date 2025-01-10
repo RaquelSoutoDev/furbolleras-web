@@ -7,22 +7,25 @@ import Logo from "../assets/logo_png.png";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const menuRef = useRef(null); // Referencia para el menú desplegable
+  const menuRef = useRef(null);
+  const buttonRef = useRef(null); 
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+    setMenuOpen((prevState) => !prevState);
   };
 
   const handleClickOutside = (event) => {
-    if (menuRef.current && !menuRef.current.contains(event.target)) {
-      // Cierra el menú si haces clic fuera de él
+    if (
+      menuRef.current &&
+      !menuRef.current.contains(event.target) &&
+      !buttonRef.current.contains(event.target) 
+    ) {
       setMenuOpen(false);
     }
   };
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -30,7 +33,11 @@ const Header = () => {
 
   return (
     <header className="header">
-      <button className="menu-btn" onClick={toggleMenu}>
+      <button
+        ref={buttonRef}
+        className="menu-btn"
+        onClick={toggleMenu}
+      >
         <img
           src={HamburguesaIcon}
           alt="Menú"
@@ -58,32 +65,57 @@ const Header = () => {
       </button>
 
       <nav
-        ref={menuRef} 
+        ref={menuRef}
         className={`menu ${menuOpen ? "open" : ""}`}
       >
         <ul>
           <li>
-            <Link to="quienes-somos" smooth={true} duration={500}>
+            <Link
+              to="quienes-somos"
+              smooth={true}
+              duration={500}
+              onClick={() => setMenuOpen(false)}
+            >
               Quienes somos
             </Link>
           </li>
           <li>
-            <Link to="partidos" smooth={true} duration={500}>
+            <Link
+              to="partidos"
+              smooth={true}
+              duration={500}
+              onClick={() => setMenuOpen(false)}
+            >
               Partidos
             </Link>
           </li>
           <li>
-            <Link to="manifiesto" smooth={true} duration={500}>
+            <Link
+              to="manifiesto"
+              smooth={true}
+              duration={500}
+              onClick={() => setMenuOpen(false)}
+            >
               Manifiesto
             </Link>
           </li>
           <li>
-            <Link to="fqa" smooth={true} duration={500}>
+            <Link
+              to="fqa"
+              smooth={true}
+              duration={500}
+              onClick={() => setMenuOpen(false)}
+            >
               Preguntas Frecuentes
             </Link>
           </li>
           <li>
-            <Link to="contacto" smooth={true} duration={500}>
+            <Link
+              to="contacto"
+              smooth={true}
+              duration={500}
+              onClick={() => setMenuOpen(false)}
+            >
               Contacto
             </Link>
           </li>
