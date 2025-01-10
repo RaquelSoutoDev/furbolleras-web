@@ -39,7 +39,7 @@
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: #2b2b2b;
+    background-color: #7ce7f1;
     overflow: hidden;
     max-height: 0;
     transition: max-height 0.3s ease-in-out;
@@ -58,17 +58,17 @@
     padding: 0.2rem;
   }
   .menu li:hover {
-    background-color: #7CE7F1;
+    background-color: #333;
   }
   
   .menu a {
     text-decoration: none;
-    color: white;
+    color: black;
     font-size: 1.2em;
     display: block;
   }
   .menu a:hover {
     cursor: pointer;
-    color: black;
+    color: white;
   }
   

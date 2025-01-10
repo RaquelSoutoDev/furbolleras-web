@@ -1,0 +1,97 @@
+.preguntas-frecuentes {
+  padding: 2.5rem;
+  background-color: black;
+  color: black;
+}
+
+.preguntas-frecuentes h2 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.acordeon {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.acordeon-item {
+  background-color: #7ce7f1;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.acordeon-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.acordeon-header:hover {
+  background-color: #333;
+  color: white;
+}
+
+.acordeon-header h3 {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.icono {
+  display: flex;
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.linea {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  transition: transform 0.3s ease;
+}
+
+
+.horizontal {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.vertical {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.vertical.abierto {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.acordeon-body {
+  padding: 1rem;
+  font-size: 1em;
+  line-height: 1.5;
+  background-color: #7ce7f1;
+}
+
+.linea-separador {
+  height: 1px;
+  background-color: #555;
+  margin: 0;
+}
+
+@media (min-width: 750px) {
+    .preguntas-frecuentes {
+        padding: 4rem;
+    }
+    .preguntas-frecuentes h2 {
+        font-size: 4em;
+    }
+}

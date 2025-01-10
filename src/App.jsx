@@ -4,6 +4,7 @@ import ProximoPartido from "./sections/ProximoPartido";
 import Banner from "./sections/Banner";
 import QuienesSomos from './sections/QuienesSomos';
 import Partidos from './sections/Partidos';
+import PreguntasFrecuentes from './sections/PreguntasFrecuentes';
 // import Mantenimiento from './components/Mantenimiento';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Banner />
       <QuienesSomos />
       <Partidos />
+      <PreguntasFrecuentes />
     </div>
   )
 }

@@ -101,7 +101,7 @@ const Header = () => {
           </li>
           <li>
             <Link
-              to="fqa"
+              to="preguntas-frecuentes"
               smooth={true}
               duration={500}
               onClick={() => setMenuOpen(false)}
