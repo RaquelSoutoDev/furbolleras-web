@@ -6,6 +6,7 @@ import QuienesSomos from './sections/QuienesSomos';
 import Partidos from './sections/Partidos';
 import PreguntasFrecuentes from './sections/PreguntasFrecuentes';
 import Manifiesto from './sections/Manifiesto';
+import Contacto from './sections/Contacto';
 // import Mantenimiento from './components/Mantenimiento';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Partidos />
       <PreguntasFrecuentes />
       <Manifiesto />
+      <Contacto />
     </div>
   )
 }

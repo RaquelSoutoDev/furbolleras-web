@@ -60,4 +60,7 @@
     .manifiesto {
         padding: 15rem;
     }
+    .manifiesto h2 {
+      font-size: 4em;
+    }
 }
