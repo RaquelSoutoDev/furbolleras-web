@@ -2,6 +2,8 @@
   padding: 2.5rem;
   background-color: black;
   color: black;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .preguntas-frecuentes h2 {
@@ -89,7 +91,7 @@
 
 @media (min-width: 750px) {
     .preguntas-frecuentes {
-        padding: 4rem;
+        padding: 15rem;
     }
     .preguntas-frecuentes h2 {
         font-size: 4em;

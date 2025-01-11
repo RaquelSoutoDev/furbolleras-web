@@ -6,6 +6,9 @@
     font-size: .6em;
     width: 100%;
 }
+.partido-bar:hover {
+    cursor: pointer;
+}
 .partido-bar_p {
     margin: 0;
 }

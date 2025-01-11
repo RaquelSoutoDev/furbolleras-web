@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-scroll";
 import "../styles/ProximoPartido.css";
 
 
@@ -24,9 +25,14 @@ const ProximoPartido = () => {
 
     return (
         <div className="partido-bar">
-            <p className="partido-bar_p">
+            <Link 
+            className="partido-bar_p"
+            to="partidos"
+            smooth={true}
+            duration={500}
+            >
                 Próximo Partido: {partido.equipo_1} vs {partido.equipo_2} - {" "}{new Date(partido.fecha).toLocaleDateString()} | {partido.ubicacion}
-            </p>
+            </Link>
         </div>
     );
 };
