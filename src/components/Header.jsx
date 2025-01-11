@@ -52,7 +52,7 @@ const Header = () => {
       <button
         className="login-btn"
         onClick={() =>
-          (window.location.href = "https://furbolleras-app.onrender.com")
+          (window.location.href = "")
         }
       >
         <img
