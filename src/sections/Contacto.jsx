@@ -23,12 +23,12 @@ const Contacto = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
     if (!captchaVerified) {
       alert("Por favor, verifica el captcha antes de enviar.");
+      e.preventDefault();
       return;
     }
-  };
+  }
 
   return (
     <section className="contacto">
@@ -82,7 +82,7 @@ const Contacto = () => {
           ></textarea>
         </div>
 
-        <div className="captcha-container">
+        <div className="captcha-container" data-sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}>
           <button type="button" onClick={handleCaptcha}>
             Verificar Captcha
           </button>
