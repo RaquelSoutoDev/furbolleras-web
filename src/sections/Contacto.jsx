@@ -8,8 +8,6 @@ const Contacto = () => {
     mensaje: "",
   });
 
-  const [captchaVerified, setCaptchaVerified] = useState(false);
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setForm((prevForm) => ({
@@ -18,34 +16,30 @@ const Contacto = () => {
     }));
   };
 
-  const handleCaptcha = () => {
-    setCaptchaVerified(true);
-  };
-
   const handleSubmit = (e) => {
-    if (!captchaVerified) {
-      alert("Por favor, verifica el captcha antes de enviar.");
-      e.preventDefault();
-      return;
-    }
-  }
+    e.preventDefault(); // Evita el comportamiento predeterminado del formulario
+    console.log("Formulario enviado:", form); // Depuración en consola
+  };
 
   return (
     <section className="contacto">
       <h2>Contacto</h2>
       <form
-        onSubmit={handleSubmit}
         name="contacto"
         method="POST"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
+        onSubmit={handleSubmit} // Aquí se utiliza correctamente
       >
+        {/* Campo oculto para Netlify */}
         <input type="hidden" name="form-name" value="contacto" />
         <div style={{ display: "none" }}>
           <label>
             No llenar este campo: <input name="bot-field" />
           </label>
         </div>
+
+        {/* Campo de Nombre */}
         <div className="form-group">
           <label htmlFor="nombre">Nombre:</label>
           <input
@@ -58,6 +52,7 @@ const Contacto = () => {
           />
         </div>
 
+        {/* Campo de Correo Electrónico */}
         <div className="form-group">
           <label htmlFor="email">Correo electrónico:</label>
           <input
@@ -70,6 +65,7 @@ const Contacto = () => {
           />
         </div>
 
+        {/* Campo de Mensaje */}
         <div className="form-group">
           <label htmlFor="mensaje">Mensaje:</label>
           <textarea
@@ -82,15 +78,8 @@ const Contacto = () => {
           ></textarea>
         </div>
 
-        <div className="captcha-container" data-sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}>
-          <button type="button" onClick={handleCaptcha}>
-            Verificar Captcha
-          </button>
-        </div>
-
-        <button type="submit" disabled={!captchaVerified}>
-          Enviar
-        </button>
+        {/* Botón de Enviar */}
+        <button type="submit">Enviar</button>
       </form>
     </section>
   );
