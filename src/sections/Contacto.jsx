@@ -1,5 +1,4 @@
 import { useState } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
 import "../styles/Contacto.css";
 
 const Contacto = () => {
@@ -9,7 +8,6 @@ const Contacto = () => {
     mensaje: "",
   });
 
-  const [captchaToken, setCaptchaToken] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -21,17 +19,8 @@ const Contacto = () => {
     }));
   };
 
-  const handleCaptchaChange = (token) => {
-    setCaptchaToken(token);
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!captchaToken) {
-      setErrorMessage("Por favor, verifica el captcha antes de enviar.");
-      return;
-    }
 
     try {
       const response = await fetch("https://backend-frb.onrender.com/contacto", {
@@ -39,14 +28,13 @@ const Contacto = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ ...form, captchaToken }),
+        body: JSON.stringify(form),
       });
 
       if (response.ok) {
         setSuccessMessage("Mensaje enviado correctamente. ¡Gracias!");
         setErrorMessage("");
         setForm({ nombre: "", email: "", mensaje: "" });
-        setCaptchaToken("");
       } else {
         setSuccessMessage("");
         setErrorMessage("Hubo un error al enviar el mensaje. Intenta de nuevo.");
@@ -98,13 +86,6 @@ const Contacto = () => {
             onChange={handleInputChange}
             required
           ></textarea>
-        </div>
-
-        <div className="captcha-container">
-          <ReCAPTCHA
-            sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-            onChange={handleCaptchaChange}
-          />
         </div>
 
         <button type="submit">Enviar</button>
