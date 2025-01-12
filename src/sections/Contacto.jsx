@@ -46,7 +46,7 @@ const Contacto = () => {
         setSuccessMessage("Mensaje enviado correctamente. ¡Gracias!");
         setErrorMessage("");
         setForm({ nombre: "", email: "", mensaje: "" });
-        setCaptchaToken(""); 
+        setCaptchaToken("");
       } else {
         setSuccessMessage("");
         setErrorMessage("Hubo un error al enviar el mensaje. Intenta de nuevo.");
