@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import "../styles/Contacto.css";
 
 const Contacto = () => {
@@ -8,6 +9,10 @@ const Contacto = () => {
     mensaje: "",
   });
 
+  const [captchaToken, setCaptchaToken] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setForm((prevForm) => ({
@@ -16,22 +21,49 @@ const Contacto = () => {
     }));
   };
 
+  const handleCaptchaChange = (token) => {
+    setCaptchaToken(token);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!captchaToken) {
+      setErrorMessage("Por favor, verifica el captcha antes de enviar.");
+      return;
+    }
+
+    try {
+      const response = await fetch("https://backend-frb.onrender.com/contacto", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...form, captchaToken }),
+      });
+
+      if (response.ok) {
+        setSuccessMessage("Mensaje enviado correctamente. ¡Gracias!");
+        setErrorMessage("");
+        setForm({ nombre: "", email: "", mensaje: "" });
+        setCaptchaToken(""); 
+      } else {
+        setSuccessMessage("");
+        setErrorMessage("Hubo un error al enviar el mensaje. Intenta de nuevo.");
+      }
+    } catch (error) {
+      console.error("Error al enviar el mensaje:", error);
+      setSuccessMessage("");
+      setErrorMessage("Hubo un error al enviar el mensaje. Intenta de nuevo.");
+    }
+  };
+
   return (
     <section className="contacto">
       <h2>Contacto</h2>
-      <form
-        name="contacto"
-        method="POST"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-      >
-        <input type="hidden" name="form-name" value="contacto" />
-        <div style={{ display: "none" }}>
-          <label>
-            No llenar este campo: <input name="bot-field" />
-          </label>
-        </div>
-
+      {successMessage && <p className="success-message">{successMessage}</p>}
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="nombre">Nombre:</label>
           <input
@@ -66,6 +98,13 @@ const Contacto = () => {
             onChange={handleInputChange}
             required
           ></textarea>
+        </div>
+
+        <div className="captcha-container">
+          <ReCAPTCHA
+            sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+            onChange={handleCaptchaChange}
+          />
         </div>
 
         <button type="submit">Enviar</button>
