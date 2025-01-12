@@ -16,11 +16,6 @@ const Contacto = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Evita el comportamiento predeterminado del formulario
-    console.log("Formulario enviado:", form); // Depuración en consola
-  };
-
   return (
     <section className="contacto">
       <h2>Contacto</h2>
@@ -29,9 +24,7 @@ const Contacto = () => {
         method="POST"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
-        onSubmit={handleSubmit} // Aquí se utiliza correctamente
       >
-        {/* Campo oculto para Netlify */}
         <input type="hidden" name="form-name" value="contacto" />
         <div style={{ display: "none" }}>
           <label>
@@ -39,7 +32,6 @@ const Contacto = () => {
           </label>
         </div>
 
-        {/* Campo de Nombre */}
         <div className="form-group">
           <label htmlFor="nombre">Nombre:</label>
           <input
@@ -52,7 +44,6 @@ const Contacto = () => {
           />
         </div>
 
-        {/* Campo de Correo Electrónico */}
         <div className="form-group">
           <label htmlFor="email">Correo electrónico:</label>
           <input
@@ -65,7 +56,6 @@ const Contacto = () => {
           />
         </div>
 
-        {/* Campo de Mensaje */}
         <div className="form-group">
           <label htmlFor="mensaje">Mensaje:</label>
           <textarea
@@ -78,7 +68,6 @@ const Contacto = () => {
           ></textarea>
         </div>
 
-        {/* Botón de Enviar */}
         <button type="submit">Enviar</button>
       </form>
     </section>
