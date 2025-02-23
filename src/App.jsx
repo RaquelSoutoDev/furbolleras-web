@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './styles/base.css';
-import './assets/fonts/DESTROY_.ttf';
+import './assets/fonts/DESTROY_.TFF'
 import Footer from './components/Footer';
 
 //Importaciones de la HOME
