@@ -1,0 +1,67 @@
+.banner {
+    position: relative;
+}
+.titulo {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.banner-h1 {
+    color: black;
+    font-family: 'DESTROY', sans-serif;
+    font-size: 3em;
+    animation: titulo-fade 2s ease-in;
+}
+.section-info {
+    padding: 2rem;
+}
+.right {
+    text-align: right;
+}
+.section-info a {
+    color: white;
+}
+.logo-equipo {
+    width: 10%;
+}
+.colaboraciones {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+}
+.contenedor-img {
+    display: flex;
+    justify-content: end;
+}
+@keyframes titulo-fade {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@media screen and (min-width:750px) {
+    .titulo {
+        justify-content: start;
+        left: 8%;
+        width: auto;
+    }
+    .banner-h1 {
+        font-size: 6em;
+    }
+    .section-info {
+        padding: 4rem 8rem 4rem 8rem;
+    }
+    .section-info h2 {
+        font-size: 4em;
+    }
+    .section-info p {
+        font-size: 1.5em;
+    }
+}

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
+import { Link as RouterLink } from "react-router-dom";
 import "../styles/Header.css";
 import HamburguesaIcon from "../assets/hamburguesa.svg";
 import CuentaIcon from "../assets/cuenta.svg";
@@ -47,7 +48,9 @@ const Header = () => {
         />
       </button>
       <div className="logo">
-        <img src={Logo} alt="Logo" title="Logo Furbolleras" loading="lazy" />
+        <RouterLink to="/">
+          <img src={Logo} alt="Logo" title="Logo Furbolleras" loading="lazy" />
+        </RouterLink>
       </div>
       <button
         className="login-btn"
@@ -70,54 +73,59 @@ const Header = () => {
       >
         <ul>
           <li>
-            <Link
+            <ScrollLink
               to="quienes-somos"
               smooth={true}
               duration={500}
               onClick={() => setMenuOpen(false)}
             >
               Quienes somos
-            </Link>
+            </ScrollLink>
           </li>
           <li>
-            <Link
+            <ScrollLink
               to="partidos"
               smooth={true}
               duration={500}
               onClick={() => setMenuOpen(false)}
             >
               Partidos
-            </Link>
+            </ScrollLink>
           </li>
           <li>
-            <Link
+            <ScrollLink
               to="manifiesto"
               smooth={true}
               duration={500}
               onClick={() => setMenuOpen(false)}
             >
               Manifiesto
-            </Link>
+            </ScrollLink>
           </li>
           <li>
-            <Link
+            <ScrollLink
               to="preguntas-frecuentes"
               smooth={true}
               duration={500}
               onClick={() => setMenuOpen(false)}
             >
               Preguntas Frecuentes
-            </Link>
+            </ScrollLink>
           </li>
           <li>
-            <Link
+            <ScrollLink
               to="contacto"
               smooth={true}
               duration={500}
               onClick={() => setMenuOpen(false)}
             >
               Contacto
-            </Link>
+            </ScrollLink>
+          </li>
+          <li>
+            <RouterLink to="/antiliga">
+              Antiliga 2025
+            </RouterLink>
           </li>
         </ul>
       </nav>
