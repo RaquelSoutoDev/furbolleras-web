@@ -5,7 +5,7 @@ import "../styles/base.css"
 import bannerDesktop from "../assets/Banner-antiliga-escritorio.jpeg";
 import bannerMobile from "../assets/Banner-antiliga-movil.jpeg";
 import equipo1 from "../assets/logo_png.png";
-import colab1 from "../assets/ladys.png";
+import colab1 from "../assets/Ladys.png";
 
 function Antiliga() {
     return (
