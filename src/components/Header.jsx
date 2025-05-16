@@ -122,11 +122,6 @@ const Header = () => {
               Contacto
             </ScrollLink>
           </li>
-          <li>
-            <RouterLink to="/antiliga">
-              Antiliga 2025
-            </RouterLink>
-          </li>
         </ul>
       </nav>
     </header>
