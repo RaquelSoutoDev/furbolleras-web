@@ -15,7 +15,7 @@ import Contacto from './sections/Contacto';
 
 // import Mantenimiento from './components/Mantenimiento';
 
-import Antiliga from './pages/Antiliga';
+// import Antiliga from './pages/Antiliga';
 
 function Home() {
   return (
@@ -39,7 +39,7 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/antiliga' element={<Antiliga />} />
+        {/*<Route path='/antiliga' element={<Antiliga />} />*/}
       </Routes>
     </Router>
   )
