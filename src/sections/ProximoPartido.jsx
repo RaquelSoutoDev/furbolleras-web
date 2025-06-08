@@ -5,6 +5,7 @@ import "../styles/ProximoPartido.css";
 
 const ProximoPartido = () => {
     const [partido, setPartido] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchProximoPartido = async () => {
@@ -17,11 +18,18 @@ const ProximoPartido = () => {
                 setPartido(proximoPartido);
             } catch (error) {
                 console.error("Error al obtener el próximo partido:", error);
+            } finally {
+                setIsLoading(false);
             }
         };
         fetchProximoPartido();
     }, []);
-    if (!partido) return <div className="partido-bar">Cargando próximo partido...</div>;
+
+    if (isLoading) {
+        return <div className="partido-bar">Cargando próximo partido...</div>
+    }
+
+    if (!partido) return <div className="partido-bar">Ahora mismo no hay partidos pendientes</div>;
 
     return (
         <div className="partido-bar">

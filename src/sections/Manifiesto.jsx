@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../styles/Manifiesto.css";
+import manifiestoImg from "../assets/antiliga-2025.jpg";
 
 const manifiestoTexto = [
   "Furbolleras es un equipo de fútbol que surge por la necesidad de romper con todos aquellos escenarios de violencia que nos han ido sacando une a une de este deporte para poder generar un espacio amable lejos de toda competitividad y machiruladas. Nos nombramos como un lugar disidente dentro de este deporte, por lo que si todavía sientes que hay algo en ti que te conecta al fútbol y estás cansade de tanto patriarcado, vente, que aquí celebramos más los “casi gol” que los goles.",
@@ -10,37 +11,45 @@ const manifiestoTexto = [
 ];
 
 const Manifiesto = () => {
-    const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
 
-    const nextPage = () => {
-        if (currentPage < manifiestoTexto.length -1) {
-            setCurrentPage(currentPage + 1);
-        }
-    };
-    
-    const prevPage = () => {
-        if (currentPage > 0) {
-            setCurrentPage(currentPage - 1);
-        }
-    };
+  const nextPage = () => {
+    if (currentPage < manifiestoTexto.length - 1) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
 
-    return (
-        <section id="manifiesto" className="manifiesto">
-            <h2>Manifiesto</h2>
-            <div className="manifiesto-contenido">
-                <p>{manifiestoTexto[currentPage]}</p>
-            </div>
-            <div className="manifiesto-navegacion">
-                <button onClick={prevPage} disabled={currentPage === 0}>
-                    Anterior
-                </button>
-                <span>{`${currentPage + 1} / ${manifiestoTexto.length}`}</span>
-                <button onClick={nextPage} disabled={currentPage === manifiestoTexto.length - 1}>
-                    Siguiente
-                </button>
-            </div>
-        </section>
-    );
+  const prevPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  return (
+    <section id="manifiesto" className="manifiesto">
+      <h2>Manifiesto</h2>
+      <div className="manifiesto-content-wrapper">
+        <div className="manifiesto-img-container">
+          <img src={manifiestoImg} alt="Furbolleras en círculo" />
+        </div>
+        <div className="manifiesto-contenido">
+          <p>{manifiestoTexto[currentPage]}</p>
+          <div className="manifiesto-navegacion">
+            <button onClick={prevPage} disabled={currentPage === 0}>
+              Anterior
+            </button>
+            <span>{`${currentPage + 1} / ${manifiestoTexto.length}`}</span>
+            <button
+              onClick={nextPage}
+              disabled={currentPage === manifiestoTexto.length - 1}
+            >
+              Siguiente
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Manifiesto;

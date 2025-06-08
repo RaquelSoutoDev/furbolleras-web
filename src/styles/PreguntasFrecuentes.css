@@ -20,7 +20,7 @@
 }
 
 .acordeon-item {
-  background-color: #85C8FF;
+  background-color: #41C4DD;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -32,11 +32,6 @@
   padding: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
-
-.acordeon-header:hover {
-  background-color: #FFD12C;
-  color: black;
 }
 
 .acordeon-header h3 {
@@ -80,7 +75,7 @@
   padding: 1rem;
   font-size: 1em;
   line-height: 1.5;
-  background-color: #85C8FF;
+  background-color: #41C4DD;
 }
 
 .linea-separador {

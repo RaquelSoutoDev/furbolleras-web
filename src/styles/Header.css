@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: .625rem 1.25rem;
     color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 100%;
@@ -39,7 +39,7 @@
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: #85C8FF;
+    background-color: #41C4DD;
     overflow: hidden;
     max-height: 0;
     transition: max-height 0.3s ease-in-out;
@@ -52,19 +52,14 @@
   .menu ul {
     list-style: none;
     margin: 0;
-    padding: .625rem 1.25rem;
-  }
-  .menu li {
-    padding: 0.2rem;
-  }
-  .menu li:hover {
-    background-color: #FFD12C;
+    padding: .5rem 1.25rem;
+    text-align: center;
   }
   
   .menu a {
     text-decoration: none;
     color: black;
-    font-size: 1.2em;
+    font-size: 1em;
     display: block;
   }
   .menu a:hover {
@@ -74,4 +69,11 @@
   
   .logo:hover {
     cursor: pointer;
+  }
+
+  @media screen and (min-width:750px) {
+    .menu ul {
+      display: flex;
+      justify-content: space-around;
+    }
   }

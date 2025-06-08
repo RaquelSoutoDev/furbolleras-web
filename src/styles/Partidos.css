@@ -31,7 +31,7 @@
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 5px;
-  background-color: #85C8FF;
+  background-color: #41C4DD;
   color: black;
   cursor: pointer;
   font-size: 0.8em;
@@ -39,7 +39,6 @@
 }
 
 .filtros button:hover {
-  background-color: #FFD12C;
   transform: scale(1.05);
 }
 
@@ -61,7 +60,7 @@
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 5px;
-  background-color: #85C8FF;
+  background-color: #41C4DD;
   color: black;
   cursor: pointer;
   font-size: 1rem;
@@ -73,9 +72,6 @@
   cursor: not-allowed;
 }
 
-.paginacion button:hover:enabled {
-  background-color: #FFD12C;
-}
 
 .paginacion span {
   font-size: 1rem;

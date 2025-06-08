@@ -33,7 +33,7 @@
   
   input,
   textarea {
-    background-color: #85c8ff;
+    background-color: #41C4DD;
     padding: 0.5rem;
     font-size: 1rem;
     border: 1px solid #ccc;
@@ -53,7 +53,7 @@
   }
   
   button {
-    background-color: #ffd12c;
+    background-color: #41C4DD;
     color: black;
     border: none;
     padding: 0.5rem 1rem;

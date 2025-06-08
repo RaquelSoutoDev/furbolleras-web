@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import ProximoPartido from "./sections/ProximoPartido";
 import Banner from "./sections/Banner";
 import QuienesSomos from './sections/QuienesSomos';
+import GaleriaAnimada from './sections/GaleriaAnimada';
 import Partidos from './sections/Partidos';
 import PreguntasFrecuentes from './sections/PreguntasFrecuentes';
 import Manifiesto from './sections/Manifiesto';
@@ -25,9 +26,10 @@ function Home() {
       <ProximoPartido />
       <Banner />
       <QuienesSomos />
+      <GaleriaAnimada />
       <Partidos />
-      <PreguntasFrecuentes />
       <Manifiesto />
+      <PreguntasFrecuentes />
       <Contacto />
       <Footer />
     </div>

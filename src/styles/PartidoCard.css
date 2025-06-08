@@ -30,17 +30,8 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.card-imd {
-  background-color: #85C8FF;
+.card-partido {
+  background-color: #41C4DD;
   color: black;
 }
 
-.card-amistoso {
-  background-color: #f5a6d0;
-  color: black;
-}
-
-.card-torneo {
-  background-color: #a32638;
-  color: white;
-}

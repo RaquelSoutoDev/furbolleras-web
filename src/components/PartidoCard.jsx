@@ -2,20 +2,8 @@ import PropTypes from "prop-types";
 import "../styles/PartidoCard.css";
 
 const PartidoCard = ({ partido }) => {
-  const { equipo_1, equipo_2, resultado_equipo_1, resultado_equipo_2, fecha, estado, tipo_partido, ubicacion } = partido;
+  const { equipo_1, equipo_2, resultado_equipo_1, resultado_equipo_2, fecha, estado, ubicacion } = partido;
 
-  const getCardColor = (tipo) => {
-    switch (tipo) {
-      case "Liga-IMD":
-        return "card-imd";
-      case "Amistoso":
-        return "card-amistoso";
-      case "Torneo":
-        return "card-torneo";
-      default:
-        return "card-default";
-    }
-  };
 
   const formatDateUTC = (fecha) => {
     const date = new Date(fecha);
@@ -30,7 +18,7 @@ const PartidoCard = ({ partido }) => {
   const formattedDate = formatDateUTC(fecha);
 
   return (
-    <div className={`partido-card ${getCardColor(tipo_partido)}`}>
+    <div className="partido-card card-partido" >
       <h3>{`${equipo_1} vs ${equipo_2}`}</h3>
       <p>
         {resultado_equipo_1 !== null && resultado_equipo_2 !== null

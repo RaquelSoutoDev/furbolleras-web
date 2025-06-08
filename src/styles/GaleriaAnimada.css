@@ -1,0 +1,55 @@
+.galeria-animada {
+    padding: 4rem 1rem;
+  }
+  
+  .galeria-grid {
+    position: relative;
+    width: 90vw;
+    max-width: 400px;
+    height: auto;
+    margin: 0 auto;
+  }
+  
+  .galeria-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transform-origin: center center;
+    position: static; 
+  }
+  
+  /* Mobile: stack mode */
+  .mobile-stack {
+    height: 500px; 
+  }
+  
+  .mobile-stack .galeria-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  /* Desktop */
+  @media screen and (min-width: 751px) {
+    .galeria-grid {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: nowrap;
+      gap: 1rem;
+      height: auto;
+    }
+  
+    .galeria-img {
+      position: static;
+      width: 250px;
+      height: auto;
+    }
+  }
+  
