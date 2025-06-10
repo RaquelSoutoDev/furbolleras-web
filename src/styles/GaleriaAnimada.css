@@ -1,5 +1,6 @@
 .galeria-animada {
     padding: 4rem 1rem;
+    overflow: hidden;
   }
   
   .galeria-grid {
