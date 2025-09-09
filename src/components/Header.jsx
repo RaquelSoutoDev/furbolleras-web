@@ -55,7 +55,7 @@ const Header = () => {
       <button
         className="login-btn"
         onClick={() =>
-          (window.location.href = "")
+          (window.location.href = "/cuenta")
         }
       >
         <img
