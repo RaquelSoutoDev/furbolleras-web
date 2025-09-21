@@ -1,5 +1,5 @@
 import "../styles/Footer.css";
-import Logo from "../assets/logo_png.png";
+import Logo from "../assets/Logo-furbolleras-colores.png";
 
 const Footer = () => {
   return (

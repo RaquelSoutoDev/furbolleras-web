@@ -4,7 +4,7 @@ import { Link as RouterLink } from "react-router-dom";
 import "../styles/Header.css";
 import HamburguesaIcon from "../assets/hamburguesa.svg";
 import CuentaIcon from "../assets/cuenta.svg";
-import Logo from "../assets/logo_png.png";
+import Logo from "../assets/Logo-furbolleras-colores.png";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
