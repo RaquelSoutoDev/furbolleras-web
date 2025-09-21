@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../styles/Manifiesto.css";
-import manifiestoImg from "../assets/antiliga-2025.jpg";
+import manifiestoImg from "../assets/Editadas/IMG_4847.jpg";
 
 const manifiestoTexto = [
   "Furbolleras es un equipo de fútbol que surge por la necesidad de romper con todos aquellos escenarios de violencia que nos han ido sacando une a une de este deporte para poder generar un espacio amable lejos de toda competitividad y machiruladas. Nos nombramos como un lugar disidente dentro de este deporte, por lo que si todavía sientes que hay algo en ti que te conecta al fútbol y estás cansade de tanto patriarcado, vente, que aquí celebramos más los “casi gol” que los goles.",

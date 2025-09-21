@@ -1,3 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#41C4DD" class="bi bi-person-fill" viewBox="0 0 16 16">
-  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <radialGradient id="myGradient" cx="17.98%" cy="17.98%" r="100%" fx="17.98%" fy="17.98%">
+      <stop offset="0%" stop-color="#ff885f"/>
+      <stop offset="4.17%" stop-color="#ff8f50"/>
+      <stop offset="8.33%" stop-color="#ff9642"/>
+      <stop offset="12.5%" stop-color="#ff9e36"/>
+      <stop offset="16.67%" stop-color="#f7a52a"/>
+      <stop offset="20.83%" stop-color="#e9ac1f"/>
+      <stop offset="25%" stop-color="#dbb218"/>
+      <stop offset="29.17%" stop-color="#cbb717"/>
+      <stop offset="33.33%" stop-color="#babd1d"/>
+      <stop offset="37.5%" stop-color="#a9c127"/>
+      <stop offset="41.67%" stop-color="#96c533"/>
+      <stop offset="45.83%" stop-color="#81c941"/>
+      <stop offset="50%" stop-color="#6acc50"/>
+      <stop offset="54.17%" stop-color="#4dcf60"/>
+      <stop offset="58.33%" stop-color="#16d170"/>
+      <stop offset="62.5%" stop-color="#00d381"/>
+      <stop offset="66.67%" stop-color="#00d493"/>
+      <stop offset="70.83%" stop-color="#00d5a5"/>
+      <stop offset="75%" stop-color="#00d6b7"/>
+      <stop offset="79.17%" stop-color="#00d6c9"/>
+      <stop offset="83.33%" stop-color="#00d6db"/>
+      <stop offset="87.5%" stop-color="#00d6ec"/>
+      <stop offset="91.67%" stop-color="#00d5fc"/>
+      <stop offset="95.83%" stop-color="#00d4ff"/>
+      <stop offset="100%" stop-color="#00d2ff"/>
+    </radialGradient>
+  </defs>
+
+  <path fill="url(#myGradient)" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
 </svg>

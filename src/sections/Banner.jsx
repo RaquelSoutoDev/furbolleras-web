@@ -1,6 +1,6 @@
 import "../styles/Banner.css";
-import bannerDesktop from "../assets/Banner-2.jpg";
-import bannerMobile from "../assets/Banner-2M.jpg";
+import bannerDesktop from "../assets/Editadas/IMG_4825.jpg";
+import bannerMobile from "../assets/Editadas/IMG_4813.jpg";
 
 const Banner = () => {
   return (
@@ -11,6 +11,8 @@ const Banner = () => {
           src={bannerDesktop}
           alt="Banner Furbolleras"
           className="banner-img"
+          loading="eager"
+          {...{ fetchpriority: "high" }}
         />
       </picture>
       <div className="banner-content">

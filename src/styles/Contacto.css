@@ -33,10 +33,10 @@
   
   input,
   textarea {
-    background-color: #41C4DD;
+    background-image: radial-gradient(circle at 17.98% 17.98%, #ff885f 0, #ff8f50 4.17%, #ff9642 8.33%, #ff9e36 12.5%, #f7a52a 16.67%, #e9ac1f 20.83%, #dbb218 25%, #cbb717 29.17%, #babd1d 33.33%, #a9c127 37.5%, #96c533 41.67%, #81c941 45.83%, #6acc50 50%, #4dcf60 54.17%, #16d170 58.33%, #00d381 62.5%, #00d493 66.67%, #00d5a5 70.83%, #00d6b7 75%, #00d6c9 79.17%, #00d6db 83.33%, #00d6ec 87.5%, #00d5fc 91.67%, #00d4ff 95.83%, #00d2ff 100%);
     padding: 0.5rem;
     font-size: 1rem;
-    border: 1px solid #ccc;
+    border: 1px solid #000;
     border-radius: 5px;
   }
   
@@ -53,13 +53,18 @@
   }
   
   button {
-    background-color: #41C4DD;
+    background-image: radial-gradient(circle at 17.98% 17.98%, #ff885f 0, #ff8f50 4.17%, #ff9642 8.33%, #ff9e36 12.5%, #f7a52a 16.67%, #e9ac1f 20.83%, #dbb218 25%, #cbb717 29.17%, #babd1d 33.33%, #a9c127 37.5%, #96c533 41.67%, #81c941 45.83%, #6acc50 50%, #4dcf60 54.17%, #16d170 58.33%, #00d381 62.5%, #00d493 66.67%, #00d5a5 70.83%, #00d6b7 75%, #00d6c9 79.17%, #00d6db 83.33%, #00d6ec 87.5%, #00d5fc 91.67%, #00d4ff 95.83%, #00d2ff 100%);
     color: black;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+  }
+
+  button[type=submit] {
+    color: #000;
+    font-weight: 600;
   }
   
   button:disabled {
