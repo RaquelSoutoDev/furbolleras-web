@@ -4,6 +4,7 @@ import { Link as RouterLink } from "react-router-dom";
 import "../styles/Header.css";
 import HamburguesaIcon from "../assets/hamburguesa.svg";
 import CuentaIcon from "../assets/cuenta.svg";
+import TiendaIcon from "../assets/tienda.svg";
 import Logo from "../assets/Logo-furbolleras-colores.png";
 
 const Header = () => {
@@ -52,6 +53,21 @@ const Header = () => {
           <img src={Logo} alt="Logo" title="Logo Furbolleras" loading="lazy" />
         </RouterLink>
       </div>
+      <div>
+      <button
+        className="login-btn"
+        onClick={() =>
+          (window.location.href = "https://furbolleras.myshopify.com/")
+        }
+      >
+        <img
+          src={TiendaIcon}
+          alt="Tienda"
+          className="icon"
+          title="Tienda Furbolleras"
+          loading="lazy"
+        />
+      </button>
       <button
         className="login-btn"
         onClick={() =>
@@ -66,6 +82,7 @@ const Header = () => {
           loading="lazy"
         />
       </button>
+      </div>
 
       <nav
         ref={menuRef}
