@@ -1,10 +1,12 @@
 import { useState, useEffect, useMemo } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import { eliminarPartido, getPartidos, editarPartido } from "../api/api";
 import FormPartido from "./FormPartido";
 import EditablePartido from "./EditablePartido";
 import "../styles/cuenta.css";
 
 const Cuenta = () => {
+  const navigate = useNavigate();
   const [partidos, setPartidos] = useState([]);
   const [filtros, setFiltros] = useState({
     estado: "",
@@ -85,11 +87,17 @@ const Cuenta = () => {
       tipo_partido: "",
       equipo: "",
       fecha: "",
+      ubicacion: "",
     });
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("auth");
+    navigate("/");
+  };
+
   const filteredPartidos = useMemo(() => {
-    return partidos.filter((partido) => {
+    const filtered = partidos.filter((partido) => {
       const matchEstado = !filtros.estado || partido.estado === filtros.estado;
       const matchTipo = !filtros.tipo_partido || partido.tipo_partido === filtros.tipo_partido;
       const matchEquipo =
@@ -100,17 +108,38 @@ const Cuenta = () => {
       const matchUbicacion =
         !filtros.ubicacion ||
         (partido.ubicacion && partido.ubicacion.toLowerCase().includes(filtros.ubicacion.toLowerCase()));
-  
+
       return matchEstado && matchTipo && matchEquipo && matchFecha && matchUbicacion;
     });
+
+    return [...filtered].sort((a, b) => {
+      const isAPendiente = a.estado === "Pendiente";
+      const isBPendiente = b.estado === "Pendiente";
+
+      if (isAPendiente && !isBPendiente) return -1;
+      if (!isAPendiente && isBPendiente) return 1;
+
+      if (isAPendiente && isBPendiente) {
+        // Ambos pendientes: el más cercano a hoy primero
+        return new Date(a.fecha) - new Date(b.fecha);
+      }
+
+      // Resto: los más recientes primero
+      return new Date(b.fecha) - new Date(a.fecha);
+    });
   }, [partidos, filtros]);
-  
 
   if (loading) {
     return <p className="p-cargando">Cargando partidos...</p>;
   }
 
   return (
+    <div className="cuenta-page">
+      <div className="cuenta-toolbar">
+        <Link to="/" className="btn-toolbar-home">← Inicio</Link>
+        <span className="toolbar-title">Panel de gestión</span>
+        <button className="btn-toolbar-logout" onClick={handleLogout}>Cerrar sesión</button>
+      </div>
     <div className="contenedor-principal">
       <div className="contenedor-izquierda">
         <div className="contenedor-formulario">
@@ -119,12 +148,12 @@ const Cuenta = () => {
               className="toggle-button"
               onClick={() => setShowCrearPartido(!showCrearPartido)}
             >
-              {showCrearPartido ? "Ocultar Crear Partido" : "Mostrar Crear Partido"}
+              {showCrearPartido ? "▲ Ocultar crear partido" : "▼ Crear partido"}
             </button>
           )}
           {showCrearPartido && (
             <>
-              <h3>Crear Partido</h3>
+              <h3>Crear partido</h3>
               <FormPartido setPartidos={setPartidos} />
             </>
           )}
@@ -136,61 +165,81 @@ const Cuenta = () => {
               className="toggle-button"
               onClick={() => setShowFiltros(!showFiltros)}
             >
-              {showFiltros ? "Ocultar Filtros" : "Mostrar Filtros"}
+              {showFiltros ? "▲ Ocultar filtros" : "▼ Filtros"}
             </button>
           )}
           {showFiltros && (
             <>
               <h3>Filtros</h3>
-              <select
-                name="estado"
-                value={filtros.estado}
-                onChange={handleFilterChange}
-              >
-                <option value="">Todos los estados</option>
-                <option value="Jugado">Jugado</option>
-                <option value="Pendiente">Pendiente</option>
-                <option value="Pospuesto">Pospuesto</option>
-                <option value="Cancelado">Cancelado</option>
-              </select>
+              <div className="form-group">
+                <label className="form-label">Estado</label>
+                <select
+                  className="cuenta-select"
+                  name="estado"
+                  value={filtros.estado}
+                  onChange={handleFilterChange}
+                >
+                  <option value="">Todos los estados</option>
+                  <option value="Jugado">Jugado</option>
+                  <option value="Pendiente">Pendiente</option>
+                  <option value="Pospuesto">Pospuesto</option>
+                  <option value="Cancelado">Cancelado</option>
+                </select>
+              </div>
 
-              <select
-                name="tipo_partido"
-                value={filtros.tipo_partido}
-                onChange={handleFilterChange}
-              >
-                <option value="">Todos los tipos</option>
-                <option value="Amistoso">Amistoso</option>
-                <option value="Liga-IMD">Liga-IMD</option>
-                <option value="Torneo">Torneo</option>
-              </select>
+              <div className="form-group">
+                <label className="form-label">Tipo</label>
+                <select
+                  className="cuenta-select"
+                  name="tipo_partido"
+                  value={filtros.tipo_partido}
+                  onChange={handleFilterChange}
+                >
+                  <option value="">Todos los tipos</option>
+                  <option value="Amistoso">Amistoso</option>
+                  <option value="Liga-IMD">Liga-IMD</option>
+                  <option value="Torneo">Torneo</option>
+                </select>
+              </div>
 
-              <input
-                className="input-cuenta"
-                type="text"
-                name="equipo"
-                placeholder="Buscar por equipo"
-                value={filtros.equipo}
-                onChange={handleFilterChange}
-              />
+              <div className="form-group">
+                <label className="form-label">Equipo</label>
+                <input
+                  className="input-cuenta"
+                  type="text"
+                  name="equipo"
+                  placeholder="Buscar por equipo"
+                  value={filtros.equipo}
+                  onChange={handleFilterChange}
+                />
+              </div>
 
-              <input
-                className="input-cuenta"
-                type="date"
-                name="fecha"
-                value={filtros.fecha}
-                onChange={handleFilterChange}
-              />
-              <input
-                className="input-cuenta"
-                type="text"
-                name="ubicacion"
-                placeholder="Buscar por ubicación"
-                value={filtros.ubicacion}
-                onChange={handleFilterChange} 
-              />
+              <div className="form-group">
+                <label className="form-label">Fecha</label>
+                <input
+                  className="input-cuenta"
+                  type="date"
+                  name="fecha"
+                  value={filtros.fecha}
+                  onChange={handleFilterChange}
+                />
+              </div>
 
-              <button onClick={handleResetFiltros}>Resetear filtros</button>
+              <div className="form-group">
+                <label className="form-label">Ubicación</label>
+                <input
+                  className="input-cuenta"
+                  type="text"
+                  name="ubicacion"
+                  placeholder="Buscar por ubicación"
+                  value={filtros.ubicacion}
+                  onChange={handleFilterChange}
+                />
+              </div>
+
+              <button className="btn-secondary" onClick={handleResetFiltros}>
+                Resetear filtros
+              </button>
             </>
           )}
         </div>
@@ -200,20 +249,20 @@ const Cuenta = () => {
         <h2>Partidos</h2>
         {filteredPartidos.length > 0 ? (
           <ul>
-          {filteredPartidos.map((partido) => (
-            <EditablePartido
-              key={partido.id}
-              partido={partido}
-              onUpdate={handleEditSubmit}
-              onDelete={handleEliminar}
-            />
-          ))}
-        </ul>
+            {filteredPartidos.map((partido) => (
+              <EditablePartido
+                key={partido.id}
+                partido={partido}
+                onUpdate={handleEditSubmit}
+                onDelete={handleEliminar}
+              />
+            ))}
+          </ul>
         ) : (
           <p className="mensaje-no-encontrado">No se encontró ningún partido</p>
         )}
-        
       </div>
+    </div>
     </div>
   );
 };

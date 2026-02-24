@@ -1,114 +1,200 @@
 .manifiesto {
-  padding: 2.5rem 1rem;
+  padding: 4rem 1.5rem;
   background-color: black;
   color: white;
-  text-align: center;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
 }
 
 .manifiesto h2 {
+  text-align: center;
   font-size: 2.5em;
-  margin-bottom: 1rem;
+  margin-bottom: 2.5rem;
 }
 
+/* Layout */
 .manifiesto-content-wrapper {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
-  position: relative; 
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* Imagen */
 .manifiesto-img-container {
   width: 100%;
-  max-width: 600px;
-  border-radius: 10px;
+  max-width: 560px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   position: relative;
-  z-index: 1;
 }
 
 .manifiesto-img-container img {
   width: 100%;
-  height: auto;
+  height: 300px;
+  object-fit: cover;
   display: block;
 }
 
-.manifiesto-contenido {
-  font-size: 1em;
-  line-height: 1.8;
-  background-image: radial-gradient(circle at 17.98% 17.98%, #ff885f 0, #ff8f50 4.17%, #ff9642 8.33%, #ff9e36 12.5%, #f7a52a 16.67%, #e9ac1f 20.83%, #dbb218 25%, #cbb717 29.17%, #babd1d 33.33%, #a9c127 37.5%, #96c533 41.67%, #81c941 45.83%, #6acc50 50%, #4dcf60 54.17%, #16d170 58.33%, #00d381 62.5%, #00d493 66.67%, #00d5a5 70.83%, #00d6b7 75%, #00d6c9 79.17%, #00d6db 83.33%, #00d6ec 87.5%, #00d5fc 91.67%, #00d4ff 95.83%, #00d2ff 100%);
-  color: black;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  padding: 1rem;
-  width: 90%;
-  max-width: 600px;
-  position: relative;
-  z-index: 2;
-  margin-top: -100px; 
+/* Overlay gradiente en mobile — funde la imagen con el fondo negro */
+.manifiesto-img-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 45%;
+  background: linear-gradient(to bottom, transparent, black);
+  pointer-events: none;
 }
 
+/* Bloque de texto */
+.manifiesto-contenido {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Comilla decorativa con gradiente de marca */
+.manifiesto-comilla {
+  font-size: 5rem;
+  line-height: 1;
+  font-family: Georgia, serif;
+  background: linear-gradient(90deg, #ff885f, #41c4dd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+  margin-bottom: -0.8rem;
+  user-select: none;
+}
+
+/* Texto con animación de entrada al cambiar de párrafo */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.manifiesto-texto {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.85);
+  animation: fadeSlideIn 0.4s ease;
+}
+
+/* Navegación */
 .manifiesto-navegacion {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 1rem;
-  margin-top: 1rem;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 0.5rem;
 }
 
-.manifiesto-navegacion button {
-  background-image: none !important;
-  background-color: #000 !important;
-  color: white;
+/* Flechas ‹ › */
+.manifiesto-arrow {
+  background: none;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 2.2rem;
+  line-height: 1;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  padding: 0 6px;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  font-family: Georgia, serif;
 }
 
+.manifiesto-arrow:hover:not(:disabled) {
+  color: white;
+}
 
-.manifiesto-navegacion button:disabled {
-  background-color: #555353;
+.manifiesto-arrow:disabled {
+  opacity: 0.15;
   cursor: not-allowed;
 }
 
-.manifiesto-navegacion span {
-  color: black;
-  font-size: 1rem;
+/* Puntos de navegación */
+.manifiesto-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.manifiesto-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.manifiesto-dot.dot-activo {
+  background: white;
+  transform: scale(1.35);
+}
+
+.manifiesto-dot:hover:not(.dot-activo) {
+  background: rgba(255, 255, 255, 0.5);
 }
 
 /* Desktop */
 @media (min-width: 750px) {
   .manifiesto {
-    padding: 5rem;
+    padding: 6rem 4rem;
   }
 
   .manifiesto h2 {
     font-size: 4em;
+    margin-bottom: 3rem;
   }
 
   .manifiesto-content-wrapper {
     flex-direction: row;
-    align-items: normal;
-
+    align-items: center;
+    gap: 4rem;
   }
 
   .manifiesto-img-container {
-    flex: 0.8; 
-    max-width: none;
+    flex: none;
+    width: 460px;
+    height: 520px;
+  }
+
+  .manifiesto-img-container img {
+    height: 100%;
+  }
+
+  /* Sin overlay en desktop — la imagen se ve completa */
+  .manifiesto-img-container::after {
+    display: none;
   }
 
   .manifiesto-contenido {
-    font-size: 1.5em;
-    flex: 1.2; 
-    margin-top: 0;
-    margin-left: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    flex: 1.2;
+    max-width: none;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .manifiesto-comilla {
+    font-size: 7rem;
+  }
+
+  .manifiesto-texto {
+    font-size: 1.15rem;
   }
 }

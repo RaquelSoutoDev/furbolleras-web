@@ -19,7 +19,7 @@ const Footer = () => {
         <a href="mailto:furbollerassevilla@gmail.com" title="Email de contacto">
           furbollerassevilla@gmail.com
         </a>
-        <p>© Furbolleras F.C 2025</p>
+        <p>© Furbolleras F.C 2026</p>
       </div>
     </footer>
   );

@@ -49,7 +49,7 @@ const Header = () => {
         />
       </button>
       <div className="logo">
-        <RouterLink to="/">
+        <RouterLink to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
           <img src={Logo} alt="Logo" title="Logo Furbolleras" loading="lazy" />
         </RouterLink>
       </div>

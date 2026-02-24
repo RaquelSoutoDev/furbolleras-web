@@ -12,32 +12,45 @@ const Login = () => {
     e.preventDefault();
 
     if (usuario === "admin" && password === "frbfc1234") {
-      localStorage.setItem("auth", "true"); 
-      navigate("/cuenta"); 
+      localStorage.setItem("auth", "true");
+      navigate("/cuenta");
     } else {
-      setError("Usuario o contraseña incorrectos ❌");
+      setError("Usuario o contraseña incorrectos");
     }
   };
 
   return (
-    <div className="login-container">
-      <h2>Iniciar Sesión</h2>
-      <form onSubmit={handleSubmit} className="login-form">
-        <input
-          type="text"
-          placeholder="Usuario"
-          value={usuario}
-          onChange={(e) => setUsuario(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Entrar</button>
-        {error && <p className="login-error">{error}</p>}
-      </form>
+    <div className="login-page">
+      <div className="login-container">
+        <p className="login-logo">Furbolleras FC</p>
+        <h2>Panel de administración</h2>
+        <form onSubmit={handleSubmit} className="login-form">
+          <div className="login-input-group">
+            <label htmlFor="usuario">Usuario</label>
+            <input
+              id="usuario"
+              type="text"
+              placeholder="Introduce tu usuario"
+              value={usuario}
+              onChange={(e) => setUsuario(e.target.value)}
+            />
+          </div>
+          <div className="login-input-group">
+            <label htmlFor="password">Contraseña</label>
+            <input
+              id="password"
+              type="password"
+              placeholder="Introduce tu contraseña"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <button type="submit" className="login-submit-btn">
+            Entrar
+          </button>
+          {error && <p className="login-error">{error}</p>}
+        </form>
+      </div>
     </div>
   );
 };

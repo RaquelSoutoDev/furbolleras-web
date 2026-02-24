@@ -1,46 +1,148 @@
-/* src/styles/login.css */
-.login-container {
-    max-width: 400px;
-    margin: 80px auto;
-    padding: 20px;
-    background: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: center;
-  }
+/* ==========================================
+   LOGIN — Tema oscuro moderno
+   ========================================== */
 
-  .login-container h2 {
-    color: black;
-  }
-  
-  .login-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .login-form input {
-    padding: 10px;
-    font-size: 16px;
-  }
-  
-  .login-form button {
-    background: #000;
-    color: white;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .login-form button:hover {
-    background: #41C4DD;
-  }
-  
-  .login-error {
-    color: red;
-    margin-top: 10px;
-    font-weight: bold;
-  }
-  
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background-color: black;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 40px 36px;
+  text-align: center;
+}
+
+.login-logo {
+  font-size: 1.8rem;
+  font-weight: 900;
+  font-family: "Barlow", sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  background: linear-gradient(90deg, #ff885f, #41c4dd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.login-container h2 {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0 0 32px;
+  letter-spacing: 0.05em;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.login-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.login-input-group label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.login-form input {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 15px;
+  color: white;
+  font-family: "Barlow", sans-serif;
+  font-weight: 400;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.login-form input::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.login-form input:focus {
+  border-color: #41c4dd;
+  background: rgba(65, 196, 221, 0.06);
+}
+
+.login-submit-btn {
+  background: radial-gradient(
+    circle at 17.98% 17.98%,
+    #ff885f 0,
+    #ff8f50 4.17%,
+    #ff9642 8.33%,
+    #ff9e36 12.5%,
+    #f7a52a 16.67%,
+    #e9ac1f 20.83%,
+    #dbb218 25%,
+    #cbb717 29.17%,
+    #babd1d 33.33%,
+    #a9c127 37.5%,
+    #96c533 41.67%,
+    #81c941 45.83%,
+    #6acc50 50%,
+    #4dcf60 54.17%,
+    #16d170 58.33%,
+    #00d381 62.5%,
+    #00d493 66.67%,
+    #00d5a5 70.83%,
+    #00d6b7 75%,
+    #00d6c9 79.17%,
+    #00d6db 83.33%,
+    #00d6ec 87.5%,
+    #00d5fc 91.67%,
+    #00d4ff 95.83%,
+    #00d2ff 100%
+  );
+  color: white;
+  font-weight: 700;
+  font-family: "Barlow", sans-serif;
+  padding: 14px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  width: 100%;
+}
+
+.login-submit-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.login-error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  padding: 10px 16px;
+  color: #f87171;
+  font-size: 0.9rem;
+  margin-top: 4px;
+  text-align: center;
+}
